@@ -22,7 +22,7 @@ export default function RootLayout({
         <div className="bg-pink-100  min-h-screen flex flex-col justify-between ">
         <Navbar />
         {children}
-        <Footer/>
+        {/* <Footer/> */}
         </div>
       </body>
     </html>

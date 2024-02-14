@@ -4,7 +4,7 @@ import { useState } from "react";
 
 const links = [
     {
-        title: "HomePage",
+        title: "Home",
         path: '/',
     },
     {
