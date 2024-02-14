@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --background-color: #f9e6e6;
+  --text-color: #4a4a4a; /* Soft pink or pastel color for the backgroun;         /* Dark gray for text */
+  --heading-color: #8b5d5d; /* Rose or dusty pink for headings */
+  --link-color: #a83f3f; /* Reddish-pink for links */
+}
+
+*{
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    background-color: aliceblue;
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+a:active {
+    color: red;
+}
