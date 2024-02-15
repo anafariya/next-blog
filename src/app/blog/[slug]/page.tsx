@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import { LoremIpsum } from 'lorem-ipsum';
+import PostUser from '@/components/PostUser/PostUser';
 
 const lorem = new LoremIpsum();
 
@@ -20,10 +21,7 @@ const SingleBlogPage = () => {
       <div className="flex-2 flex flex-col gap-6">
         <div className="flex gap-2 items-center">
           <Image src="https://images.pexels.com/photos/12993218/pexels-photo-12993218.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Main Image" width={200} height={200} className="rounded-lg" />
-          <div>
-            <p className="text-sm text-gray-600">Written by</p>
-            <p className="font-semibold">{author.name}</p>
-          </div>
+         <PostUser/>
         </div>
         <div>
           <p className="text-sm text-gray-600">Published on</p>

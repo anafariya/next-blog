@@ -1,4 +1,4 @@
-import PostCard from '@/components/PostCard/page'
+import PostCard from '@/components/PostCard/PostCard'
 import React from 'react'
 
 function BlogPage() {
