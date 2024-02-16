@@ -14,8 +14,8 @@ function AboutPage() {
             Beyond her literary pursuits, Nasima is a devoted mother and cherished spouse, whose love and support fuel her creative endeavors. With open arms, she welcomes readers to immerse themselves in her evocative writings, inviting them on a journey of introspection and imagination through her website.
           </p>
         </div>
-        <div>
-          <Image src="/about.jpg" alt="about" width={250} height={225} />
+        <div style={{ width: '250px', height: 'auto' }}>
+          <Image src="/about.jpg" alt="about" width={250} height={500} />
         </div>
       </div>
     </div>

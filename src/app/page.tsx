@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
+export default function Home()
 
-export default function Home() {
+{
   return (
+    
     <div className="container flex flex-col lg:flex-row justify-center items-center mx-auto py-8">
       <div className="text-center lg:text-left max-w-md mr-8 lg:mr-0 mb-8 lg:mb-0">
         <h1 className="text-3xl font-bold mb-4">Dr. Nasima Nisha</h1>
