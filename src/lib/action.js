@@ -1,21 +1,18 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { Post, User } from "./models";
+import { posts, users } from "./models";
 import { connectToDb } from "./utils";
 import { signIn, signOut } from "./auth";
 import bcrypt from "bcryptjs";
 
 export const addPost = async (prevState,formData) => {
-  // const title = formData.get("title");
-  // const desc = formData.get("desc");
-  // const slug = formData.get("slug");
-
+ 
   const { title, desc, slug, userId } = Object.fromEntries(formData);
 
   try {
     connectToDb();
-    const newPost = new Post({
+    const newPost = new posts({
       title,
       desc,
       slug,
@@ -38,7 +35,7 @@ export const deletePost = async (formData) => {
   try {
     connectToDb();
 
-    await Post.findByIdAndDelete(id);
+    await posts.findByIdAndDelete(id);
     console.log("deleted from db");
     revalidatePath("/blog");
     revalidatePath("/admin");
@@ -53,7 +50,7 @@ export const addUser = async (prevState,formData) => {
 
   try {
     connectToDb();
-    const newUser = new User({
+    const newUser = new users({
       username,
       email,
       password,
@@ -75,19 +72,14 @@ export const deleteUser = async (formData) => {
   try {
     connectToDb();
 
-    await Post.deleteMany({ userId: id });
-    await User.findByIdAndDelete(id);
+    await posts.deleteMany({ userId: id });
+    await users.findByIdAndDelete(id);
     console.log("deleted from db");
     revalidatePath("/admin");
   } catch (err) {
     console.log(err);
     return { error: "Something went wrong!" };
   }
-};
-
-export const handleGithubLogin = async () => {
-  "use server";
-  await signIn("github");
 };
 
 export const handleLogout = async () => {
@@ -106,7 +98,7 @@ export const register = async (previousState, formData) => {
   try {
     connectToDb();
 
-    const user = await User.findOne({ username });
+    const user = await users.findOne({ username });
 
     if (user) {
       return { error: "Username already exists" };
@@ -146,3 +138,8 @@ export const login = async (prevState, formData) => {
     throw err;
   }
 };
+
+export const handleGithubLogin = async () => {
+  "use server"
+  await signIn("github")
+}

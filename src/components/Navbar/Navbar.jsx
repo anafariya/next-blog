@@ -1,7 +1,10 @@
+import { auth } from "@/lib/auth";
 import Links from "./links/Links";
 import Link from "next/link";
 
-const Navbar = () => {
+const Navbar = async () => {
+    const session = await auth()
+    console.log(session)
     return (
         <div>
             <div className="flex items-center justify-between bg-pink-100 p-4">
@@ -10,7 +13,7 @@ const Navbar = () => {
                 </Link>
             </div>
             <div>
-                <Links />
+                <Links session = {session} />
             </div>
         </div>
     );
